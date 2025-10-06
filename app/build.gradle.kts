@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.example.glowgreen"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.glowgreen"
-        minSdk = 28
-        targetSdk = 35
+        minSdk = 27
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
