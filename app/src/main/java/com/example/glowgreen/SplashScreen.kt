@@ -3,6 +3,7 @@ package com.example.glowgreen
 import android.window.SplashScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -20,9 +21,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 
 @Composable
-fun SplashScreen() {
+fun SplashScreen(navController: NavController) {
     Column(
         Modifier
             .fillMaxSize()
@@ -53,7 +55,10 @@ fun SplashScreen() {
             Image(
                 painter = painterResource(R.drawable.glowgreentext),
                 contentDescription = null,
-                Modifier.fillMaxWidth(0.7f),
+                Modifier.fillMaxWidth(0.7f)
+                    .clickable {
+                        navController.navigate("1")
+                    },
                 contentScale = ContentScale.FillWidth,
             )
         }
@@ -63,5 +68,5 @@ fun SplashScreen() {
 @Preview
 @Composable
 fun SplashScreenPreview() {
-    SplashScreen()
+//    SplashScreen()
 }

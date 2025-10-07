@@ -27,9 +27,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun Screen2() {
+fun Screen2(navController: NavController) {
     Column(
         Modifier
             .fillMaxSize()
@@ -72,7 +73,9 @@ fun Screen2() {
             Spacer(Modifier.weight(1f))
 
             Button(
-                onClick = {},
+                onClick = {
+                    navController.navigate("3")
+                },
                 Modifier.fillMaxWidth().padding(horizontal = 35.dp),
                 shape = RoundedCornerShape(18.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2E7547))
@@ -90,5 +93,5 @@ fun Screen2() {
 @Preview
 @Composable
 fun Preview2() {
-    Screen2()
+//    Screen2()
 }

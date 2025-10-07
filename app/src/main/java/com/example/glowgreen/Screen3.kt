@@ -2,6 +2,7 @@ package com.example.glowgreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -28,9 +29,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun Screen3() {
+fun Screen3(navController: NavController) {
     Column(
         Modifier
             .fillMaxSize()
@@ -71,7 +73,9 @@ fun Screen3() {
             Spacer(Modifier.weight(1f))
 
             Button(
-                onClick = {},
+                onClick = {
+                    navController.navigate("splash")
+                },
                 Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(18.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2E7547))
@@ -89,5 +93,5 @@ fun Screen3() {
 @Preview
 @Composable
 fun Preview3() {
-    Screen3()
+//    Screen3()
 }

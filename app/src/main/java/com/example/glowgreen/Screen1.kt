@@ -16,15 +16,18 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun Screen1() {
+fun Screen1(navController: NavController) {
     Column(
         Modifier.fillMaxSize()
 
@@ -33,7 +36,9 @@ fun Screen1() {
             Image(
                 painter = painterResource(R.drawable.welcome_page_background),
                 contentDescription = null,
-                Modifier.fillMaxSize()
+                modifier = Modifier
+                    .fillMaxWidth(),
+                contentScale = ContentScale.FillWidth
             )
 
             Column(Modifier
@@ -62,7 +67,9 @@ fun Screen1() {
 
 
                 Button(
-                    onClick = {},
+                    onClick = {
+                        navController.navigate("2")
+                    },
                     Modifier
                         .fillMaxWidth()
                         .height(60.dp),
@@ -82,5 +89,6 @@ fun Screen1() {
 @Preview
 @Composable
 fun Preview1() {
-    Screen1()
+    val navController = rememberNavController()
+    Screen1(navController)
 }

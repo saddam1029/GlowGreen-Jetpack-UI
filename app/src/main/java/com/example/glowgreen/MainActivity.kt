@@ -11,14 +11,34 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.glowgreen.ui.theme.GlowGreenTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
+            val navController = rememberNavController()
 
+            NavHost(navController = navController, startDestination = "splash"){
+                composable("splash") {
+                    SplashScreen(navController)
+                }
+
+                composable("1") {
+                    Screen1(navController)
+                }
+
+                composable("2") {
+                    Screen2(navController)
+                }
+
+                composable("3") {
+                    Screen3(navController)
+                }
+            }
         }
     }
 }
